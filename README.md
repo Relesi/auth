@@ -45,14 +45,14 @@ Using the provider consists of two parts:
    the `OAuth2` function which creates the security scheme. Use the scheme to secure the API
    endpoints as needed. See [Design](#design) below.
 2. Implement and mount the oauth2 provider controller onto the service.
-   See [Implement](#implement) below.
+   
 
 ### Design
 
 First import the OAuth2 design package in your design:
 
 ```go
-package design
+package br.com.relesi.cloud.services.auth;
 
 import (
     . "https://github.com/Relesi/auth"
