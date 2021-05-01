@@ -26,6 +26,7 @@ public class AuthoriazationServerConfigurer extends AuthorizationServerConfigure
 		clients.inMemory()
 		.withClient("store")
 		.secret(passwordEncoder.encode("storepwd"))
+		.authorizedGrantTypes("password")
 		.scopes("web", "mobile");
 	}
 	
