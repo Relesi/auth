@@ -10,32 +10,26 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 
 @Configuration
-public class AuthoriazationServerConfigurer extends AuthorizationServerConfigurerAdapter{
+public class AuthoriazationServerConfigurer extends AuthorizationServerConfigurerAdapter {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private UserDetailsService detailsService;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory()
-		.withClient("store")
-		.secret(passwordEncoder.encode("storepwd"))
-		.authorizedGrantTypes("password")
-		.scopes("web", "mobile");
+		clients.inMemory().withClient("store").secret(passwordEncoder.encode("storepwd"))
+				.authorizedGrantTypes("password").scopes("web", "mobile");
 	}
-	
-	
+
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authenticationManager)
-		.userDetailsService(detailsService);
+		endpoints.authenticationManager(authenticationManager).userDetailsService(detailsService);
 	}
-	
-	
+
 }
