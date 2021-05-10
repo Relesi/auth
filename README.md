@@ -2,6 +2,13 @@
 
 
 # OAuth2 
+
+To access YouTrack resources with the REST API using OAuth 2.0, you need to log in, authorize, and obtain an access token for YouTrack. Authorization is provided by the Hub service.
+
+We only recommend that you use OAuth 2.0 when your application requires client-side authentication. Otherwise, you're better off using token-based authorization. For more information, see Permanent Token Authorization.
+
+			Do not attempt to register external services in the built-in Hub service! This can cause the service to crash or malfunction. It can also result in a corrupted database or data loss.
+
 This repo provides both the design and implementation for a complete OAuth2 provider. This provider
 implements the "Authorization Code" flow as described by
 [RFC 6749 section 1.3.1](https://tools.ietf.org/html/rfc6749#section-1.3.1).
